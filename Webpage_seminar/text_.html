@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Box Example</title>
+    <style>
+        /* Set the body to be a full screen */
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Form container */
+        .form-container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Text box styling */
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Area to display the submitted text */
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Enter some text</h2>
+        <!-- The input field where the user types with autocomplete turned off -->
+        <input type="text" id="userInput" placeholder="Type something..." required autocomplete="off">
+        
+        <!-- Area where the text will be displayed after submission -->
+        <div class="output" id="displayText"></div>
+    </div>
+
+    <script>
+        // Get the input field and display area
+        const inputField = document.getElementById('userInput');
+        const displayText = document.getElementById('displayText');
+
+        // Add an event listener for the 'keydown' event
+        inputField.addEventListener('keydown', function(event) {
+            // Check if the pressed key is 'Enter' (key code 13)
+            if (event.key === 'Enter') {
+                // Display the entered text
+                displayText.innerHTML = 'You entered: ' + inputField.value;
+                
+                // Optionally, clear the input field after displaying the text
+                inputField.value = '';
+            }
+        });
+    </script>
+
+</body>
+</html>
